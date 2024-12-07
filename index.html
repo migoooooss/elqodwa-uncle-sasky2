@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elqodwa Uncle Sasky</title>
+    <style>
+        body {
+            background-color: #222;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            direction: rtl;
+        }
+        h1 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        img {
+            max-width: 200px;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+        .question {
+            background-color: #333;
+            padding: 20px;
+            margin: 20px 10%;
+            border-radius: 10px;
+            border: 1px solid #444;
+            box-shadow: 0px 0px 10px #000;
+        }
+        .question p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin: 10px 0;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .btn {
+            background-color: #444;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: #666;
+        }
+        #result img {
+            max-width: 150px;
+        }
+        .emoji {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Elqodwa Uncle Sasky 🎩🖤</h1>
+    <img src="https://static.wikia.nocookie.net/naruto/images/d/d8/Sasuke_Part_2.png" alt="Sasuke">
+    <p>املأ البيانات الشخصية وأجب عن الأسئلة الممتعة! 😎🔥</p>
+    
+    <form id="quizForm">
+        <!-- البيانات الشخصية -->
+        <div>
+            <label>اسمك: <input type="text" id="name" required></label>
+        </div>
+        <div>
+            <label>العمر: <input type="number" id="age" required></label>
+        </div>
+        
+        <!-- الأسئلة -->
+        <div class="question">
+            <p>1️⃣ انكل ساسكي بيكتب بأي لغة؟ 🖋️</p>
+            <label><input type="radio" name="q1" value="فرانكو"> فرانكو 🇫🇷</label>
+            <label><input type="radio" name="q1" value="عربي"> عربي 🇴🇲</label>
+            <label><input type="radio" name="q1" value="انجليزي"> انجليزي 🇬🇧</label>
+        </div>
+        <div class="question">
+            <p>2️⃣ مين أفشخ واحد في سيرفر تايتن؟ 🤔🔥</p>
+            <label><input type="radio" name="q2" value="يوسف"> يوسف 💪</label>
+            <label><input type="radio" name="q2" value="كتناكي"> كتناكي 🐔</label>
+            <label><input type="radio" name="q2" value="عبدالله"> عبدالله 🦁</label>
+            <label><input type="radio" name="q2" value="مستر ساسكي"> مستر ساسكي 💥</label>
+        </div>
+        <div class="question">
+            <p>3️⃣ ما هي الأكلة المفضلة للقدوة؟ 🍽️</p>
+            <label><input type="radio" name="q3" value="بيتزا"> بيتزا 🍕</label>
+            <label><input type="radio" name="q3" value="مكرونة بشاميل"> مكرونة بشاميل 🥘</label>
+            <label><input type="radio" name="q3" value="شاورما"> شاورما 🌯</label>
+            <label><input type="radio" name="q3" value="برجر"> برجر 🍔</label>
+        </div>
+        
+        <button type="button" class="btn" onclick="calculateScore()">تأكيد ✅</button>
+    </form>
+    
+    <div id="result" style="display: none;">
+        <h2>النتيجة 🎉</h2>
+        <p id="score"></p>
+        <img src="https://static.wikia.nocookie.net/naruto/images/d/d8/Sasuke_Part_2.png" alt="Sasuke">
+        <p>🖤🤍</p>
+    </div>
+
+    <script>
+        function calculateScore() {
+            let score = 0;
+            const answers = {
+                q1: "فرانكو",
+                q2: "مستر ساسكي",
+                q3: "مكرونة بشاميل"
+            };
+            
+            for (let question in answers) {
+                const userAnswer = document.querySelector(`input[name="${question}"]:checked`);
+                if (userAnswer && userAnswer.value === answers[question]) {
+                    score += 1;
+                }
+            }
+            
+            document.getElementById("quizForm").style.display = "none";
+            document.getElementById("result").style.display = "block";
+            document.getElementById("score").textContent = `لقد حصلت على ${score} من 3!`;
+        }
+    </script>
+</body>
+</html>
+<img src="sasuke.jpg" alt="Sasuke" style="width: 300px; height: auto; border-radius: 10px; margin: 10px 0;">
